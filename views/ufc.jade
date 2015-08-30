@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	h1.
+		UFC Events
+
+	form#formUFCData(name="downloadUFCData", method="post", action="/addUFCData")
+		button#btnSubmmit(type="submit") submit
+	ul
+		//- each ufcevent, i in ufcEventsArray
+		//- 	li 
+		//- 		if ufcevent.base_title && ufcevent.title_tag_line
+		//- 			p #{ufcevent.base_title} - #{ufcevent.title_tag_line}
+		//- 			p event id = #{ufcevent.id}
