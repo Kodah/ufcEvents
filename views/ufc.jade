@@ -1,14 +1,27 @@
 extends layout
 
 block content
-	h1.
-		UFC Events
 
-	form#formUFCData(name="downloadUFCData", method="post", action="/addUFCData")
-		button#btnSubmmit(type="submit") submit
-	ul
-		//- each ufcevent, i in ufcEventsArray
-		//- 	li 
-		//- 		if ufcevent.base_title && ufcevent.title_tag_line
-		//- 			p #{ufcevent.base_title} - #{ufcevent.title_tag_line}
-		//- 			p event id = #{ufcevent.id}
+	nav(class="navbar navbar-inverse")
+
+	h1.
+		UFC Events 
+	div(class="panel panel-default fluid-container")
+		div(class="panel-body")
+			p	Number of events 
+				span(class="badge") #{ufcEventsArray.length}
+				form#formUFCData(name="downloadUFCData", method="post", action="/addUFCData"  style="float:left")
+					button#btnSubmmit(type="submit") Load events to database
+				form#formUFCData(name="downloadUFCData", method="post", action="/deleteUFCData")
+					button#btnSubmmit(type="submit") Delete events from database
+
+	
+	ul(class="list-group")
+		each ufcevent in ufcEventsArray
+			li(class="list-group-item")
+				if ufcevent.base_title && ufcevent.title_tag_line
+					div(class="panel-body")
+						h2 #{ufcevent.base_title} - #{ufcevent.title_tag_line}
+						p event id: #{ufcevent._id}
+						p Status: #{ufcevent.event_status}
+						p date: #{ufcevent.event_date}
