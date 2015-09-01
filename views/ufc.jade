@@ -18,8 +18,8 @@ block content
 	
 	ul(class="list-group")
 		each ufcevent in ufcEventsArray
-			li(class="list-group-item")
-				if ufcevent.base_title && ufcevent.title_tag_line
+			if (ufcevent.base_title != null && ufcevent.title_tag_line != null)
+				li(class="list-group-item")
 					div(class="panel-body")
 						h2 #{ufcevent.base_title} - #{ufcevent.title_tag_line}
 						p event id: #{ufcevent._id}
