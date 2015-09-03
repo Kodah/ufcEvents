@@ -36,13 +36,14 @@ router.post('/', function(req, res, next) {
                     endEventDateGmt: new Date(item.end_event_dategmt),
                     baseTitle: item.base_title,
                     titleTagLine: item.title_tag_line,
-                    featuredImageUrl: item.feature_image,
+                    featureImageUrl: item.feature_image,
                     eventStatus: item.event_status,
                     arena: item.arena,
                     location: {
                         name: item.location
                     }
                 });
+
 
                 Event.where({_id: item.id}).findOne(function (err, existing){
                     if (err) throw err;
