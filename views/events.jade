@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    nav.navbar.navbar-inverse
+
+    h1 UFC Events
+
+    .panel.panel-default.container-fluid
+        .panel-body
+            p Number of events
+                span.badge= events.length
+            form(name='downloadUfcData', method='post', action='/events')
+                button.btn.btn-success(type="submit") Load events to database
+
+            form(name='deleteUfcData', method='post', action='/events/delete')
+                button.btn.btn-warning(type="submit") Remove events
+
+
+    .list-group
+        for ev in events
+            span.list-group-item
+                h3.title #{ev.baseTitle} #{ev.titleTagLine}
+                p ID: #{ev._id}
+                p Status: #{ev.eventStatus}
+                p Date: #{ev.eventDate}
+                img(src="#{ev.featureImageUrl}", alt="image")
