@@ -28,3 +28,6 @@ build/Release
 node_modules
 data/journal
 data/_tmp
+
+.DS_Store
+
