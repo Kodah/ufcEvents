@@ -43,10 +43,13 @@ router.post('/addUFCData', function (req, res){
                     "title_tag_line" : ufcEvent.title_tag_line,
                     "feature_image" : ufcEvent.feature_image,
                     "event_status" : ufcEvent.event_status,
-                    "arena" : ufcEvent.arena
+                    "arena" : ufcEvent.arena,
+                    "feature_image" : ufcEvent.feature_image
                 };
-
-                doc.push(ufcEventDictionary);
+                if (!ufcEventDictionary.event_status.localeCompare('FINALIZED')) {
+                    doc.push(ufcEventDictionary);
+                };
+                
             });
 
             doc.sort(function (a, b) {
@@ -75,7 +78,7 @@ router.get('/ufc', function (req, res) {
 
     collection.find({},{},function(e, docs){
         res.render('ufc', {
-            "ufcEventsArray" : docs
+            "ufcEventsArray" : docs,
         });
     });
 });

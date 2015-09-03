@@ -19,9 +19,13 @@ block content
 	ul(class="list-group")
 		each ufcevent in ufcEventsArray
 			li(class="list-group-item")
-				if ufcevent.base_title && ufcevent.title_tag_line
 					div(class="panel-body")
 						h2 #{ufcevent.base_title} - #{ufcevent.title_tag_line}
 						p event id: #{ufcevent._id}
 						p Status: #{ufcevent.event_status}
 						p date: #{ufcevent.event_date}
+						img(src="#{ufcevent.feature_image}", alt="image")
+						div(class="progress")
+							div(class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%")
+								span(class="sr-only") 40% Complete (success)
+
