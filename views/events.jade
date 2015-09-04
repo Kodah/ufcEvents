@@ -19,8 +19,11 @@ block content
     .list-group
         for ev in events
             span.list-group-item
-                h3.title #{ev.baseTitle} #{ev.titleTagLine}
-                p ID: #{ev._id}
-                p Status: #{ev.eventStatus}
-                p Date: #{ev.eventDate}
-                img(src="#{ev.featureImageUrl}", alt="image")
+                .centre-me
+                    a(href="http://google.com")
+                        h3.title.text-center #{ev.baseTitle} #{ev.titleTagLine}
+                    p.text-center ID: #{ev._id}
+                    p.text-center Status: #{ev.eventStatus}
+                    p.text-center Date: #{ev.eventDate}
+                    a(href="http://google.com") 
+                        img(src="#{ev.featureImageUrl}", alt="image").center-block
