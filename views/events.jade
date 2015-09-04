@@ -25,5 +25,6 @@ block content
                     p.text-center ID: #{ev._id}
                     p.text-center Status: #{ev.eventStatus}
                     p.text-center Date: #{ev.eventDate}
-                    a(href="http://google.com") 
-                        img(src="#{ev.featureImageUrl}", alt="image").center-block
+                    if ev.featureImageUrl
+                        a(href="http://google.com") 
+                            img(src="#{ev.featureImageUrl}", alt="image").center-block
