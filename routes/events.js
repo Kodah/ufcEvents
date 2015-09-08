@@ -7,7 +7,7 @@ var Event = require('../models/event');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     // sort by eventDate descending
-    Event.find({}).sort('-eventDate').exec(function(err, events){
+    Event.find({featureImageUrl : /^((?!EventPlaceholder).)*$/ }).sort('-eventDate').exec(function(err, events){
         if (err) throw err;
 
         res.render('events', {title: 'Events', events: events});
