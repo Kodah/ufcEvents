@@ -1,0 +1,8 @@
+extends layout
+
+block content
+
+	h1 #{title}
+
+	for match in matchups
+		p #{match.fighter1_last_name} vs #{match.fighter2_last_name} 

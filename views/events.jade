@@ -21,7 +21,7 @@ block content
 						.card-image
 							img(src="#{ev.featureImageUrl}", alt="image").center-block
 							span.card-title.card-panel
-								a(href="http://google.com") #{ev.baseTitle} #{ev.titleTagLine}
+								a(href="/matchups/#{ev._id}") #{ev.baseTitle} #{ev.titleTagLine}
 					.card-content
 						p.center-align ID: #{ev._id}
 						p.center-align Status: #{ev.eventStatus}

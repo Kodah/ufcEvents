@@ -19,6 +19,7 @@ function parseEvents()
         if(!error && response.statusCode == 200) {
             
             body.forEach(function(item) {
+                parseMatchups(item.id);
                 var ufcevent = new Event({
                     _id: item.id.toString(),
                     eventDate: new Date(item.event_date),
@@ -45,14 +46,13 @@ function parseEvents()
                 });
 
                 console.log("Inserted event " + item.base_title );
-                parseMatchups(item.id);
             });
         }
         else {
-            console.log('api error');
+            console.log('Events api error' + error);
         }
 
-        console.log("Finished");
+        console.log("Finished Parsing Events");
     });
 }
 
@@ -103,9 +103,12 @@ function parseMatchups(eventID)
             });
         }
         else {
-            console.log('api error');
+            console.log('Matchups api error' + error);
         }
     });
+    console.log("Parsed fights for event with id:" + eventID);
 }
 
 parseEvents();
+
+console.log("Finished Parsing");
