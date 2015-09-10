@@ -1,8 +1,22 @@
 doctype html
 html
-    head
-        title= title
-        link(rel='stylesheet', href='/css/bootstrap.min.css')
-        link(rel='stylesheet', href='/css/bootstrap-theme.min.css')
-    body
-        block content
+	head
+		title= title
+		script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+		link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js")
+	body
+
+		nav
+			.nav-wrapper
+				a(href="#" class="brand-logo") UFC
+
+				ul(id="nav-mobile" class="right hide-on-med-and-down")
+					li
+						a(href="sass.html") Sass
+					li
+						a(href="badges.html") Components
+					li
+						a(href="collapsible.html") JavaScript
+
+		block content
