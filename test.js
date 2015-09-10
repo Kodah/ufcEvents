@@ -112,3 +112,5 @@ function parseMatchups(eventID)
 parseEvents();
 
 console.log("Finished Parsing");
+
+mongoose.connection.close();
