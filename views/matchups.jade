@@ -2,7 +2,55 @@ extends layout
 
 block content
 
-	h1 #{title}
 
 	for match in matchups
-		p #{match.fighter1_last_name} vs #{match.fighter2_last_name} 
+		.container
+			.row
+				.col.s8.offset-s2.grid-example
+					p.center-align #{match.fighter1_last_name} vs #{match.fighter2_last_name} 
+					.row
+						.col.s4.card
+							img(src="#{match.fighter1_full_body_image}", alt="image").card-image
+						.col.s4				
+							#myChart(style='height: 150px; width: 100%;')
+							#customBar(style='height: 150px; width: 100%; background-color: steelblue;')
+								.customBarTopLayer(style='height: 150px; width: 45%; background-color: salmon;')
+
+
+						.col.s4.card
+							img(src="#{match.fighter2_full_body_image}", alt="image").card-image
+
+	script.
+		$(function() {
+			$('.customBarTopLayer').each(function(i, obj) {
+				var x = Math.floor((Math.random() * 100) + 1);
+				console.log(obj)
+			    $(obj).width(x + "%");
+			});
+
+			var chart = new CanvasJS.Chart("myChart", {
+
+				title:{
+				text: "Think Will Win"
+				},
+				gridColor: "red",
+				data: [
+					{
+						type: "stackedBar100",
+						dataPoints: 
+						[
+							{  y: 40, label: "Cafeteria"},
+						]
+					}, 	
+					{
+						type: "stackedBar100",
+						dataPoints: 
+						[
+							{  y: 20, label: "Cafeteria"},
+						]
+					}
+				]
+			});
+
+			chart.render();
+		});
