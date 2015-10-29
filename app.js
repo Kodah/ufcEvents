@@ -13,7 +13,8 @@ var matchups = require('./routes/matchups');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/ufcevents');
+// mongoose.connect('mongodb://localhost/ufcevents');
+mongoose.connect('mongodb-server.cloudapp.net:27017/');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
